@@ -22,8 +22,8 @@ import {
 const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
         <AlphaView/>
       </SafeAreaView>
     </>
