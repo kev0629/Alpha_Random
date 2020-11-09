@@ -124,7 +124,7 @@ letterStyle = function() {
 const styles = StyleSheet.create({
   AlphaText: {
     color: Colors.white,
-    fontSize: 100,
+    fontSize: 150,
     textAlign:'center',
     padding:50,
     //fontFamily:'Cursive standard'
