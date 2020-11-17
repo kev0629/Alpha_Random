@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import AlphaView from './AlphaView'
+import ConfigView from './ConfigView'
 
 import {
   Colors,
@@ -24,7 +25,8 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
-        <AlphaView/>
+        {/*<AlphaView/>*/}
+      <ConfigView/>
       </SafeAreaView>
     </>
   );
