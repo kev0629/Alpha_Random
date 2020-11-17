@@ -20,44 +20,15 @@ export default class ConfigView extends Component {
     render() {
         return(
             <View style={styles.ConfigView}>
-              <View style={{flexDirection: 'row'}}>
-                <Text style={styles.Labels}>Script Min.</Text>
+              <View style={styles.LabelsView}>
+                <Text>Script Min.</Text>
+              </View>
+              <View style={styles.SwitchsView}>
                 <Switch
-                    style={styles.switchs}
                     trackColor={{ false: "#767577", true: "#81b0ff" }}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={isScrMinOn => this.setState({isScrMinOn})}
                     value={this.state.isScrMinOn}
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <Text style={styles.Labels}>Script Maj.</Text>
-                <Switch
-                    style={styles.switchs}
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isScrMajOn => this.setState({isScrMajOn})}
-                    value={this.state.isScrMajOn}
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <Text style={styles.Labels}>Cursive Min.</Text>
-                <Switch
-                    style={styles.switchs}
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isCurMinOn => this.setState({isCurMinOn})}
-                    value={this.state.isCurMinOn}
-                />
-              </View>
-              <View style={{flexDirection: 'row'}}>
-                <Text style={styles.Labels}>Cursive Maj.</Text>
-                <Switch
-                    style={styles.switchs}
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isCurMajOn => this.setState({isCurMajOn})}
-                    value={this.state.isCurMajOn}
                 />
               </View>
             </View>
@@ -67,17 +38,25 @@ export default class ConfigView extends Component {
 
 const styles = StyleSheet.create({
     Labels: {
-      color: Colors.white,
-      textAlign:'center',
-      alignItems: 'stretch'
-      //fontFamily:'Cursive standard'
+      color: Colors.white
     },
-    switchs: {
-      alignItems: 'stretch',
+    SwitchsView: {
+      flexDirection: 'row',
+      backgroundColor:'gray',
+      textAlign:'center',
+      alignItems: 'center',
       justifyContent: 'center'
-      //fontFamily:'Cursive standard'
+    },
+    LabelsView: {
+      flexDirection: 'row',
+      backgroundColor:'blue',
+      textAlign:'center',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     ConfigView:{
-      flex:1
+      flex:1,
+      flexDirection: 'row',
+      justifyContent: 'center',
     }
 })
