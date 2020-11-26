@@ -6,10 +6,14 @@ import {
 import {
   View,
   StyleSheet,
-  Text
+  Text,
+  SafeAreaView
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 function randomLetter(min=true, maj=false) {
   var result = '';
@@ -60,6 +64,7 @@ export default class AlphaView extends Component{
   }
     render(){
       return(
+        <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
         <View style={styles.TotalView}>
           <View style = {styles.AlphaView}>
             <Text style={[styles.AlphaText,{fontFamily: this.state.font}]}>
@@ -81,10 +86,12 @@ export default class AlphaView extends Component{
                 <ConfigIcon/>
               }
             buttonStyle={{ justifyContent: 'flex-end' }}
+            onPress={() => this.props.navigation.navigate('Config')}
             />
           </View>
           
         </View>
+        </SafeAreaView>
         
       )}
 };

@@ -5,12 +5,13 @@
  * @format
  * @flow strict-local
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   StatusBar,
+  View,
+  Text
 } from 'react-native';
 
 import AlphaView from './AlphaView'
@@ -20,14 +21,39 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
+      <NavigationContainer>
+      <Stack.Navigator headerMode="none">
+      <Stack.Screen 
+        name="Home"
+        component={AlphaView}
+        />
+      <Stack.Screen 
+        name="Config"
+        component={ConfigView}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+      {/*<SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>*/}
         {/*<AlphaView/>*/}
-      <ConfigView/>
-      </SafeAreaView>
+      {/*<ConfigView/>*/}
+      {/*</SafeAreaView>*/}
     </>
   );
 };

@@ -3,7 +3,8 @@ import {
     Text,
     View,
     StyleSheet,
-    Switch
+    Switch,
+    SafeAreaView
 } from 'react-native';
 
 import {
@@ -16,7 +17,8 @@ class Choice extends Component{
   }
   render() {
   return(
-    <>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
+      <>
     <View style={styles.LabelsView}>
       <Text style={styles.Labels}>{this.props.label}</Text>
     </View>
@@ -29,6 +31,7 @@ class Choice extends Component{
     />
     </View>
     </>
+    </SafeAreaView>
   )
 }
 }
@@ -42,69 +45,70 @@ export default class ChoiceView extends Component {
   }
     render() {
         return(
-          <View style={styles.ConfigView}>
-            <Text style={styles.Labels}>{this.props.isCurMajOn}</Text>
-            <View style={styles.ChoiceView}>
-            <>
-            <View style={styles.LabelsView}>
-              <Text style={styles.Labels}>Script min.</Text>
+          <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
+            <View style={styles.ConfigView}>
+              <View style={styles.ChoiceView}>
+                <>
+                  <View style={styles.LabelsView}>
+                    <Text style={styles.Labels}>Script min.</Text>
+                  </View>
+                  <View style={styles.SwitchsView}>
+                    <Switch
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={isScrMinOn => this.setState({isScrMinOn})}
+                            value={this.state.isScrMinOn}
+                        />
+                  </View>
+                </>
+              </View>
+              <View style={styles.ChoiceView}>
+                <>
+                  <View style={styles.LabelsView}>
+                    <Text style={styles.Labels}>Script maj.</Text>
+                  </View>
+                  <View style={styles.SwitchsView}>
+                    <Switch
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={isScrMajOn => this.setState({isScrMajOn})}
+                            value={this.state.isScrMajOn}
+                        />
+                  </View>
+                </>
+              </View>
+              <View style={styles.ChoiceView}>
+                <>
+                  <View style={styles.LabelsView}>
+                    <Text style={styles.Labels}>Cursive min.</Text>
+                  </View>
+                  <View style={styles.SwitchsView}>
+                    <Switch
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={isCurMinOn => this.setState({isCurMinOn})}
+                            value={this.state.isCurMinOn}
+                        />
+                  </View>
+                </>
+              </View>
+                <View style={styles.ChoiceView}>
+                  <>
+                    <View style={styles.LabelsView}>
+                      <Text style={styles.Labels}>Cursive maj.</Text>
+                    </View>
+                    <View style={styles.SwitchsView}>
+                      <Switch
+                              trackColor={{ false: "#767577", true: "#81b0ff" }}
+                              ios_backgroundColor="#3e3e3e"
+                              onValueChange={isCurMajOn => this.setState({isCurMajOn})}
+                              value={this.state.isCurMajOn}
+                          />
+                    </View>
+                  </>
+                </View>
             </View>
-            <View style={styles.SwitchsView}>
-            <Switch
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isScrMinOn => this.setState({isScrMinOn})}
-                    value={this.state.isScrMinOn}
-                />
-            </View>
-            </>
-            </View>
-            <View style={styles.ChoiceView}>
-            <>
-            <View style={styles.LabelsView}>
-              <Text style={styles.Labels}>Script maj.</Text>
-            </View>
-            <View style={styles.SwitchsView}>
-            <Switch
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isScrMajOn => this.setState({isScrMajOn})}
-                    value={this.state.isScrMajOn}
-                />
-            </View>
-            </>
-            </View>
-            <View style={styles.ChoiceView}>
-            <>
-            <View style={styles.LabelsView}>
-              <Text style={styles.Labels}>Cursive min.</Text>
-            </View>
-            <View style={styles.SwitchsView}>
-            <Switch
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isCurMinOn => this.setState({isCurMinOn})}
-                    value={this.state.isCurMinOn}
-                />
-            </View>
-            </>
-            </View>
-            <View style={styles.ChoiceView}>
-            <>
-            <View style={styles.LabelsView}>
-              <Text style={styles.Labels}>Cursive maj.</Text>
-            </View>
-            <View style={styles.SwitchsView}>
-            <Switch
-                    trackColor={{ false: "#767577", true: "#81b0ff" }}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={isCurMajOn => this.setState({isCurMajOn})}
-                    value={this.state.isCurMajOn}
-                />
-            </View>
-            </>
-            </View>
-          </View>
+          </SafeAreaView>
         )
     }
 }
