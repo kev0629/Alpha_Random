@@ -11,6 +11,10 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
+
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 class Choice extends Component{
   state={
     isScrMinOn:this.props.isScrMinOn
@@ -46,6 +50,15 @@ export default class ChoiceView extends Component {
     render() {
         return(
           <SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>
+
+            <View style={styles.BackView}>
+              <Button
+              icon={iconStyle.back}
+              type="clear"
+              style={styles.RefreshButton}
+              onPress={() => this.props.navigation.goBack()}
+              />
+            </View>
             <View style={styles.ConfigView}>
               <View style={styles.ChoiceView}>
                 <>
@@ -112,7 +125,13 @@ export default class ChoiceView extends Component {
         )
     }
 }
-
+const iconStyle = {
+  back:{
+              name: "arrow-back-ios",
+              size: 50,
+              color: "white"
+            }         
+}
 const styles = StyleSheet.create({
     Labels: {
       color: Colors.white
@@ -139,9 +158,16 @@ const styles = StyleSheet.create({
       padding:10
     },
     ConfigView:{
-      flex:1,
+      flex:10,
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center'
+    },
+    BackView:{
+      flex:1,
+      // justifyContent: 'center',
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      padding:10
     }
 })

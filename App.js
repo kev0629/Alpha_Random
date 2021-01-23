@@ -43,6 +43,7 @@ const App: () => React$Node = () => {
       <Stack.Screen 
         name="Home"
         component={AlphaView}
+        options={{ title: 'Overview' }}
         />
       <Stack.Screen 
         name="Config"
@@ -50,10 +51,6 @@ const App: () => React$Node = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
-      {/*<SafeAreaView style={{ flex: 1, backgroundColor: Colors.black }}>*/}
-        {/*<AlphaView/>*/}
-      {/*<ConfigView/>*/}
-      {/*</SafeAreaView>*/}
     </>
   );
 };
