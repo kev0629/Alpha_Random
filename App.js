@@ -12,14 +12,14 @@ import {
   StatusBar,
   View,
   Text
-} from 'react-native';
+} from './node_modules/react-native';
 
-import AlphaView from './AlphaView'
-import ConfigView from './ConfigView'
+import AlphaView from '.Components/AlphaView'
+import ConfigView from '.Components/ConfigView'
 
 import {
   Colors,
-} from 'react-native/Libraries/NewAppScreen';
+} from '.node_modules/react-native/Libraries/NewAppScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -43,7 +43,6 @@ const App: () => React$Node = () => {
       <Stack.Screen 
         name="Home"
         component={AlphaView}
-        options={{ title: 'Overview' }}
         />
       <Stack.Screen 
         name="Config"
