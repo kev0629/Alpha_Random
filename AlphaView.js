@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView,Platform} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -37,12 +37,18 @@ function randomFont(isScrMinOn, isScrMajOn, isCurMinOn, isCurMajOn) {
     (isScrMajOn == true || isScrMinOn == true) &&
     (isCurMajOn == true || isCurMinOn == true)
   ) {
-    var fonts = [null, 'Cursive standard'];
+    var fonts;
+    Platform.OS === 'ios'
+      ? (fonts = [null, 'Cursive_standard'])
+      : (fonts = [null, 'Cursive_standard']);
   } else if (
     (isScrMajOn == false || isScrMinOn == false) &&
     (isCurMajOn == true || isCurMinOn == true)
   ) {
-    var fonts = ['Cursive standard'];
+    var fonts;
+    Platform.OS === 'ios'
+      ? (fonts = ['Cursive_standard'])
+      : (fonts = ['Cursive_standard']);
   } else if (
     (isScrMajOn == true || isScrMinOn == true) &&
     (isCurMajOn == false || isCurMinOn == false)
@@ -56,7 +62,14 @@ function randomFont(isScrMinOn, isScrMajOn, isCurMinOn, isCurMajOn) {
 export default class AlphaView extends Component {
   state = {
     letter: 'Start',
-    font: 'Cursive standard',
+    ...Platform.select({
+      ios: {
+        font: 'Cursive standard',
+      },
+      android: {
+        font: 'Cursive_standard',
+      },
+    }),
   };
   reload() {
     this.setState({
