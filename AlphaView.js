@@ -1,28 +1,19 @@
 import React, {Component} from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import {View, StyleSheet, Text, SafeAreaView,Platform} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView, Platform} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-function randomLetter(isScrMinOn, isScrMajOn, isCurMinOn, isCurMajOn) {
+function randomLetter(isMinOn, isMajOn) {
   var result = '';
   var majString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var minString = 'abcdefghijklmnopqrstuvwxyz';
-  if (
-    (isScrMajOn == true || isCurMajOn == true) &&
-    (isScrMinOn == false || isCurMinOn == false)
-  ) {
+  if (isMajOn && !isMinOn) {
     var characters = majString;
-  } else if (
-    (isScrMajOn == false || isCurMajOn == false) &&
-    (isScrMinOn == true || isCurMinOn == true)
-  ) {
+  } else if (!isMajOn && isMinOn) {
     var characters = minString;
-  } else if (
-    (isScrMajOn == true || isCurMajOn == true) &&
-    (isScrMinOn == true || isCurMinOn == true)
-  ) {
+  } else if (isMajOn && isMinOn) {
     var characters = minString + majString;
   }
   var charactersLength = characters.length;
@@ -32,27 +23,18 @@ function randomLetter(isScrMinOn, isScrMajOn, isCurMinOn, isCurMajOn) {
   return result;
 }
 
-function randomFont(isScrMinOn, isScrMajOn, isCurMinOn, isCurMajOn) {
-  if (
-    (isScrMajOn == true || isScrMinOn == true) &&
-    (isCurMajOn == true || isCurMinOn == true)
-  ) {
+function randomFont(isScrOn, isCurOn) {
+  if (isCurOn && isScrOn) {
     var fonts;
     Platform.OS === 'ios'
-      ? (fonts = [null, 'Cursive_standard'])
+      ? (fonts = [null, 'Cursive standard'])
       : (fonts = [null, 'Cursive_standard']);
-  } else if (
-    (isScrMajOn == false || isScrMinOn == false) &&
-    (isCurMajOn == true || isCurMinOn == true)
-  ) {
+  } else if (isCurOn && !isScrOn) {
     var fonts;
     Platform.OS === 'ios'
-      ? (fonts = ['Cursive_standard'])
+      ? (fonts = ['Cursive standard'])
       : (fonts = ['Cursive_standard']);
-  } else if (
-    (isScrMajOn == true || isScrMinOn == true) &&
-    (isCurMajOn == false || isCurMinOn == false)
-  ) {
+  } else if (!isCurOn && isScrOn) {
     var fonts = [null];
   }
   let result = fonts[Math.floor(Math.random() * fonts.length)];
@@ -73,18 +55,8 @@ export default class AlphaView extends Component {
   };
   reload() {
     this.setState({
-      letter: randomLetter(
-        this.props.isScrMinOn,
-        this.props.isScrMajOn,
-        this.props.isCurMinOn,
-        this.props.isCurMajOn,
-      ),
-      font: randomFont(
-        this.props.isScrMinOn,
-        this.props.isScrMajOn,
-        this.props.isCurMinOn,
-        this.props.isCurMajOn,
-      ),
+      letter: randomLetter(this.props.isMinOn, this.props.isMajOn),
+      font: randomFont(this.props.isScrOn, this.props.isCurOn),
     });
   }
   render() {
@@ -113,7 +85,6 @@ export default class AlphaView extends Component {
             />
           </View>
         </View>
-        {console.log(this.props)}
       </SafeAreaView>
     );
   }
@@ -136,15 +107,15 @@ const iconStyle = {
   },
 };
 
-constletterStyle = function () {
-  return {
-    color: Colors.white,
-    fontSize: 100,
-    textAlign: 'center',
-    padding: 50,
-    //fontFamily:'Cursive standard'
-  };
-};
+// const letterStyle = function () {
+//   return {
+//     color: Colors.white,
+//     fontSize: 100,
+//     textAlign: 'center',
+//     padding: 50,
+//     //fontFamily:'Cursive standard'
+//   };
+// };
 
 const styles = StyleSheet.create({
   AlphaText: {

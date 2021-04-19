@@ -20,71 +20,51 @@ const Stack = createStackNavigator();
 class App extends Component {
   constructor(props) {
     super(props);
-    this.onScrMinChange = this.onScrMinChange.bind(this);
-    this.onScrMajChange = this.onScrMajChange.bind(this);
-    this.onCurMinChange = this.onCurMinChange.bind(this);
-    this.onCurMajChange = this.onCurMajChange.bind(this);
+    this.onMinChange = this.onMinChange.bind(this);
+    this.onMajChange = this.onMajChange.bind(this);
+    this.onScrChange = this.onScrChange.bind(this);
+    this.onCurChange = this.onCurChange.bind(this);
   }
   state = {
-    isScrMinOn: true,
-    isScrMajOn: false,
-    isCurMinOn: false,
-    isCurMajOn: false,
+    isMinOn: true,
+    isMajOn: false,
+    isScrOn: true,
+    isCurOn: false,
   };
-  onScrMinChange() {
-    console.log(this.state.isScrMinOn);
-    this.setState({isScrMinOn: !this.state.isScrMinOn}, function () {
-      console.log(this.state.isScrMinOn);
+  onMinChange() {
+    console.log(this.state.isMinOn);
+    this.setState({isMinOn: !this.state.isMinOn}, function () {
+      console.log(this.state.isMinOn);
       console.log(this.state);
-      if (
-        !this.state.isScrMinOn &&
-        !this.state.isScrMajOn &&
-        !this.state.isCurMinOn &&
-        !this.state.isCurMajOn
-      ) {
-        this.setState({isScrMinOn: true});
+      if (!this.state.isMinOn && !this.state.isMajOn) {
+        this.setState({isMinOn: true});
       }
     });
   }
-  onScrMajChange() {
-    this.setState({isScrMajOn: !this.state.isScrMajOn}, function () {
-      console.log(this.state.isScrMinOn);
+  onMajChange() {
+    this.setState({isMajOn: !this.state.isMajOn}, function () {
+      console.log(this.state.isMinOn);
       console.log(this.state);
-      if (
-        !this.state.isScrMinOn &&
-        !this.state.isScrMajOn &&
-        !this.state.isCurMinOn &&
-        !this.state.isCurMajOn
-      ) {
-        this.setState({isScrMinOn: true});
+      if (!this.state.isMinOn && !this.state.isMajOn) {
+        this.setState({isMinOn: true});
       }
     });
   }
-  onCurMinChange() {
-    this.setState({isCurMinOn: !this.state.isCurMinOn}, function () {
-      console.log(this.state.isScrMinOn);
+  onScrChange() {
+    this.setState({isScrOn: !this.state.isScrOn}, function () {
+      console.log(this.state.isMinOn);
       console.log(this.state);
-      if (
-        !this.state.isScrMinOn &&
-        !this.state.isScrMajOn &&
-        !this.state.isCurMinOn &&
-        !this.state.isCurMajOn
-      ) {
-        this.setState({isScrMinOn: true});
+      if (!this.state.isScrOn && !this.state.isCurOn) {
+        this.setState({isScrOn: true});
       }
     });
   }
-  onCurMajChange() {
-    this.setState({isCurMajOn: !this.state.isCurMajOn}, function () {
-      console.log(this.state.isScrMinOn);
+  onCurChange() {
+    this.setState({isCurOn: !this.state.isCurOn}, function () {
+      console.log(this.state.isMinOn);
       console.log(this.state);
-      if (
-        !this.state.isScrMinOn &&
-        !this.state.isScrMajOn &&
-        !this.state.isCurMinOn &&
-        !this.state.isCurMajOn
-      ) {
-        this.setState({isScrMinOn: true});
+      if (!this.state.isScrOn && !this.state.isCurOn) {
+        this.setState({isScrOn: true});
       }
     });
   }
@@ -98,10 +78,10 @@ class App extends Component {
               {(props) => (
                 <AlphaView
                   {...props}
-                  isScrMinOn={this.state.isScrMinOn}
-                  isScrMajOn={this.state.isScrMajOn}
-                  isCurMinOn={this.state.isCurMinOn}
-                  isCurMajOn={this.state.isCurMajOn}
+                  isMinOn={this.state.isMinOn}
+                  isMajOn={this.state.isMajOn}
+                  isScrOn={this.state.isScrOn}
+                  isCurOn={this.state.isCurOn}
                 />
               )}
             </Stack.Screen>
@@ -109,14 +89,14 @@ class App extends Component {
               {(props) => (
                 <ConfigView
                   {...props}
-                  isScrMinOn={this.state.isScrMinOn}
-                  isScrMajOn={this.state.isScrMajOn}
-                  isCurMinOn={this.state.isCurMinOn}
-                  isCurMajOn={this.state.isCurMajOn}
-                  onScrMinChange={this.onScrMinChange}
-                  onScrMajChange={this.onScrMajChange}
-                  onCurMinChange={this.onCurMinChange}
-                  onCurMajChange={this.onCurMajChange}
+                  isMinOn={this.state.isMinOn}
+                  isMajOn={this.state.isMajOn}
+                  isScrOn={this.state.isScrOn}
+                  isCurOn={this.state.isCurOn}
+                  onMinChange={this.onMinChange}
+                  onMajChange={this.onMajChange}
+                  onScrChange={this.onScrChange}
+                  onCurChange={this.onCurChange}
                 />
               )}
             </Stack.Screen>

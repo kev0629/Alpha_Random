@@ -19,14 +19,14 @@ export default class ChoiceView extends Component {
           <View style={styles.ChoiceView}>
             <>
               <View style={styles.LabelsView}>
-                <Text style={styles.Labels}>Script min.</Text>
+                <Text style={styles.Labels}>Min.</Text>
               </View>
               <View style={styles.SwitchsView}>
                 <Switch
                   trackColor={{false: '#767577', true: '#81b0ff'}}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={this.props.onScrMinChange}
-                  value={this.props.isScrMinOn}
+                  onValueChange={this.props.onMinChange}
+                  value={this.props.isMinOn}
                 />
               </View>
             </>
@@ -34,14 +34,14 @@ export default class ChoiceView extends Component {
           <View style={styles.ChoiceView}>
             <>
               <View style={styles.LabelsView}>
-                <Text style={styles.Labels}>Script maj.</Text>
+                <Text style={styles.Labels}>Maj.</Text>
               </View>
               <View style={styles.SwitchsView}>
                 <Switch
                   trackColor={{false: '#767577', true: '#81b0ff'}}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={this.props.onScrMajChange}
-                  value={this.props.isScrMajOn}
+                  onValueChange={this.props.onMajChange}
+                  value={this.props.isMajOn}
                 />
               </View>
             </>
@@ -49,14 +49,14 @@ export default class ChoiceView extends Component {
           <View style={styles.ChoiceView}>
             <>
               <View style={styles.LabelsView}>
-                <Text style={styles.Labels}>Cursive min.</Text>
+                <Text style={styles.Labels}>Script</Text>
               </View>
               <View style={styles.SwitchsView}>
                 <Switch
                   trackColor={{false: '#767577', true: '#81b0ff'}}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={this.props.onCurMinChange}
-                  value={this.props.isCurMinOn}
+                  onValueChange={this.props.onScrChange}
+                  value={this.props.isScrOn}
                 />
               </View>
             </>
@@ -64,14 +64,14 @@ export default class ChoiceView extends Component {
           <View style={styles.ChoiceView}>
             <>
               <View style={styles.LabelsView}>
-                <Text style={styles.Labels}>Cursive maj.</Text>
+                <Text style={styles.Labels}>Cursive</Text>
               </View>
               <View style={styles.SwitchsView}>
                 <Switch
                   trackColor={{false: '#767577', true: '#81b0ff'}}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={this.props.onCurMajChange}
-                  value={this.props.isCurMajOn}
+                  onValueChange={this.props.onCurChange}
+                  value={this.props.isCurOn}
                 />
                 {console.log(this.props)}
               </View>
